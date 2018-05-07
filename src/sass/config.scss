@@ -1,0 +1,57 @@
+@charset "utf-8";
+// Color
+    $defaulColor:#2A3F54; // 主色调，主要用于导航条，重点说明，标题
+    $assistColor1:#3A87AD;// 辅助色，主要用于按钮、a标签可操作
+    $assistColor2:#1ABB9C;// 辅助色，主要用于单/复选框，点缀边线，进度条
+    $defaulFontColor:#73879C;//文字显示
+    $assistFontColor1:#CCCCCC;//不可选样式，不重要说明
+    $scrollColor:#E8E8E8; // 滚轮配色
+    $transverseNavColor:#EDEDED;//前景色，用于横向导航
+    $bgColor:#F7F7F7; // 背景色
+    $INIT_COLOR:#c7254e;// 错误提示或警告类型
+    $init_bg_color:#f9f2f4;//部分背景色
+    $borderColor:#dcdcdc;
+    $child_menu_bg:rgba(255, 255, 255, 0.06);
+    $white:white;
+
+    $blue-sky:#50C1CF;
+    $blue:#3498DB;
+    $purple:#9B59B6;
+    $aero:#9CC2CB;
+    $orange:#F39C12;
+
+// default font size
+    $large_size:30px; //少数提醒性数字
+    $com_large_size:24px; // 侧导航标题等
+    $medium_size:18px; // 重要文字或系统标题
+    $com_medium_size:16px;//用于大多数小标题
+    $samll_size:14px;//用于大多数文字，基本文字大小
+    $com_samll_size:12px;//辅助性文字，大段备注，文字说明等
+    $sm_size:10px; // 最小字体大小
+
+    $default_size:$com_samll_size;
+
+// Defaul math
+    $math_zero:0;
+    $defaul_math:5;
+    $defaul_pixel:5px;
+
+// Defaul Distance
+    $padding_zero:0;
+
+    $padding:15px;
+    $padding_up_down:15px 0;
+    $padding_left_right:0 15px;
+
+    $margin:15px;
+    $margin_up_down:15px 0;
+    $margin_left_right:0 15px;
+
+
+// default Class
+    .oa_none {
+      display: none;
+    }
+    .oa_center {
+        text-align: center;
+    }

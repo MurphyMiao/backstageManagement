@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ddd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/custom.min.css">
+    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
+</head>
+<body class="nav-md">
+<div class="container body top_nav_fixed">
+    <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0; text-align: center;">
+                    <a href="javascript:location.reload();" class="site_title">
+                       some icon
+                    </a>
+                </div>
+                <h4 class="nav-company-name">
+                    后台管理
+                </h4>
+                <div class="clearfix"></div>
+                <!-- menu profile quick info -->
+                <div class="profile clearfix" style="margin: 0 auto;text-align: center;">
+                    <span>欢迎回来</span>
+                    <h2>
+                       管理员
+                    </h2>
+                </div>
+                <!-- /menu profile quick info -->
+                <br />
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li class="active">
+                                <a>
+                                    <i class="fa fa-home"></i> 首页 </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-action="openPage" data-href="www.baidu.com">
+                                    <i class="fa fa-gittip"></i>设计规范</a>
+                            </li>
+                            <li>
+                                <a href="#layout">
+                                    <i class="fa fa-bars"></i>结构</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-bookmark-o"></i>布局样式参照
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="init.html#layout—link">布局样式参照</a>
+                                    </li>
+                                    <li>
+                                        <a href="edit.html">编辑辑页面</a>
+                                    </li>
+                                    <li>
+                                        <a href="layout.html">列表页面</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-caret-square-o-left"></i>设置导航
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="#nav-left">竖导航</a>
+                                    </li>
+                                    <li>
+                                        <a href="#nav-transverse">横导航</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#center">
+                                    <i class="fa fa-code"></i>内容部分</a>
+                            </li>
+                            <li>
+                                <a href="#inputbox">
+                                    <i class="fa fa-edit"></i>输入框</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-gift"></i>部件
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="#ass-btn">按钮</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-label">标签</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-radiohandover">单选切换</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-switch">切换开关</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-radio">单选</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-checkbox">复选</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-selecttag">选择标签</a>
+                                    </li>
+                                    <li>
+                                        <a href="#ass-select">下拉菜单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#ass-textareas">
+                                    <i class="fa fa-pie-chart"></i>富文本编辑器</a>
+                            </li>
+                            <li>
+                                <a href="#ass-validator_1">
+                                    <i class="fa fa-tree"></i>表单判断文本输入</a>
+                            </li>
+                            <li>
+                                <a href="#ass-step">
+                                    <i class="fa fa-cogs"></i>步骤</a>
+                            </li>
+                            <li>
+                                <a href="#ass-fileUploader">
+                                    <i class="fa fa-cloud-upload"></i>附件上传</a>
+                            </li>
+                            <li>
+                                <a href="MultiUserSelect.html">
+                                    <i class="fa fa-pied-piper"></i>树形插件</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="个人设置" href="javascript:PersonalSet()">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="邮件">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="内部消息">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="退出" href="javascript:doLogoutMsg()">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle" style="width:30%">
+                        <a id="menu_toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <!-- <a id="menu_toggle"><i class="fa fa-bars"></i></a> -->
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="" id="userPhoto" alt="">
+                                管理员
+                                    <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li>
+                                    <a href="javascript:PersonalSet();">
+                                        <span class="badge bg-red pull-right">0</span>
+                                        <span>邮件</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:PersonalSet();">
+                                        <span class="badge bg-red pull-right">0</span>
+                                        <span>内部短信</span>
+                                    </a>
+                                </li>
+                                <br/>
+                                <li>
+                                    <a href="javascript:PersonalSet();">个人设置</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:doLogoutMsg()">
+                                        <i class="fa fa-sign-out pull-right"></i>退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- 内容部分 -->
+        <div class="right_col" role="main">
+
+        </div>
+    </div>
+</div>
+    <script src="../js/common.min.js"></script>
+    <script src="../js/index.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>周期性事务</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../node_modules/datatables.net-dt/css/jquery.dataTables.css">
+            <link rel="stylesheet" href="../css/month.min.css">
+            
+                    <style>
+                        .checkbox label,
+                        .checkbox-inline,
+                        .radio-inline {
+                            padding-left: 0;
+                        }
+
+                        [data-type="remindMonth"],
+                        [data-type="remindWeek"],
+                        [data-type="remindDay"] {
+                            display: none;
+                        }
+                    </style>
+
+                    <body>
+                        <div class="x_panel">
+<div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#affairNew">
+        新建周期性事务
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#affairEdit">
+        周期性事务查询
+    </button>
+</div>
+
+<!-- /oa/core/funcs/calendar/act/AffairAct/selectAffairByPagin.act -->
+<table id="tableContainer" class="table table-striped jambo_table bulk_action display dataTable" role="grid" aria-describedby="tables_info">
+</table>
+
+<!-- 新建周期性事务 -->
+<div id="affairNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form data-toggle="validator" class="form-horizontal calender" role="form">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">
+                        新建周期性事务
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 5px 20px;">
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 col-xs-12 control-label">开始时间</label>
+                            <div class="col-md-5 col-sm-5 col-xs-12" data-type="beginTime">
+                                <input size="16" name="beginTime" type="text" readonly class="form-control col-md-12 col-md-12 col-xs-12" placeholder="开始时间"
+                                    title="开始时间">
+                                <span class="absIcons add-on">
+                                    <i class="icon-th fa fa-calendar"></i>
+                                </span>
+                            </div>
+                            <div class="col-md-4 col-sm-3 col-xs-12 form-control-static">
+                                <span class="text-danger">*为空为当前时间</span>
+                            </div>
+
+                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-offset-3 col-md-offset-3 col-md-9 col-sm-9 col-xs-12">--%>
+                                <%--<span class="text-danger">为空为当前时间</span>--%>
+                                    <%--</div>--%>
+                                        <%--</div>--%>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">结束时间</label>
+                                                <div class="col-md-5 col-sm-5 col-xs-12" data-type="endTime">
+                                                    <input size="16" name="endTime" type="text" readonly class="form-control col-md-12 col-md-12 col-xs-12" placeholder="开始时间"
+                                                        title="开始时间">
+                                                    <span class="absIcons add-on">
+                                                        <i class="icon-th fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-12 form-control-static">
+                                                    <span class="text-danger">*为空则不结束</span>
+                                                </div>
+                                            </div>
+
+                                            <%--<div class="form-group">--%>
+                                                <%--<div class="col-sm-offset-3 col-md-offset-3 col-md-9 col-sm-9 col-xs-12">--%>
+                                                    <%--<span class="text-danger">为空则不结束</span>--%>
+                                                        <%--</div>--%>
+                                                            <%--</div>--%>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">提醒类型</label>
+                                                                    <div class="col-md-5 col-sm-5 col-xs-12">
+                                                                        <select class="form-control" name="type" data-wrap="new">
+                                                                            <option value="2">按日提醒</option>
+                                                                            <option value="3">按周提醒</option>
+                                                                            <option value="4">按月提醒</option>
+                                                                            <option value="5">按年提醒</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-4 col-xs-12 form-control-static">
+                                                                        <label>
+                                                                            <input type="checkbox" name="isWeekend" checked> 选中则排除周六日
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <%--<div class="form-group">--%>
+                                                                    <%--<div class="col-sm-offset-3 col-md-offset-3 col-md-9 col-sm-9 col-xs-12">--%>
+                                                                        <%--<div class="checkbox">--%>
+                                                                            <%--<label>--%>
+                                                                                <%--<input type="checkbox"> 选中则排除周六日--%>
+                                                                                    <%--</label>--%>
+                                                                                        <%--</div>--%>
+                                                                                            <%--</div>--%>
+                                                                                                <%--</div>--%>
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">提醒方式</label>
+                                                                                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                                                                                            <label class="checkbox-inline">
+                                                                                                                <input value="0" name="remind" type="checkbox" class="flat"> 手机短信提醒
+                                                                                                            </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                            <label class="checkbox-inline">
+                                                                                                                <input value="1" name="remind" type="checkbox" class="flat"> 内部短信提醒
+                                                                                                            </label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">提醒时间</label>
+                                                                                                        <div class="col-md-4 col-sm-4 col-xs-12" data-type="remindWeek">
+                                                                                                            <select name="remindWeek" class="form-control">
+                                                                                                                <option value="1">星期一</option>
+                                                                                                                <option value="2">星期二</option>
+                                                                                                                <option value="3">星期三</option>
+                                                                                                                <option value="4">星期四</option>
+                                                                                                                <option value="5">星期五</option>
+                                                                                                                <option value="6">星期六</option>
+                                                                                                                <option value="7">星期天</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-2 col-sm-2 col-xs-12" data-type="remindMonth">
+                                                                                                            <select name="remindMonth" class="form-control">
+                                                                                                                <option value="1">1月</option>
+                                                                                                                <option value="2">2月</option>
+                                                                                                                <option value="3">3月</option>
+                                                                                                                <option value="4">4月</option>
+                                                                                                                <option value="5">5月</option>
+                                                                                                                <option value="6">6月</option>
+                                                                                                                <option value="7">7月</option>
+                                                                                                                <option value="8">8月</option>
+                                                                                                                <option value="9">9月</option>
+                                                                                                                <option value="10">10月</option>
+                                                                                                                <option value="11">11月</option>
+                                                                                                                <option value="12">12月</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-2 col-sm-2 col-xs-12" data-type="remindDay">
+                                                                                                            <select name="remindDay" class="form-control">
+                                                                                                                <option value="1">1日</option>
+                                                                                                                <option value="2">2日</option>
+                                                                                                                <option value="3">3日</option>
+                                                                                                                <option value="4">4日</option>
+                                                                                                                <option value="5">5日</option>
+                                                                                                                <option value="6">6日</option>
+                                                                                                                <option value="7">7日</option>
+                                                                                                                <option value="8">8日</option>
+                                                                                                                <option value="9">9日</option>
+                                                                                                                <option value="10">10日</option>
+                                                                                                                <option value="11">11日</option>
+                                                                                                                <option value="12">12日</option>
+                                                                                                                <option value="13">13日</option>
+                                                                                                                <option value="14">14日</option>
+                                                                                                                <option value="15">15日</option>
+                                                                                                                <option value="16">16日</option>
+                                                                                                                <option value="17">17日</option>
+                                                                                                                <option value="18">18日</option>
+                                                                                                                <option value="19">19日</option>
+                                                                                                                <option value="20">20日</option>
+                                                                                                                <option value="21">21日</option>
+                                                                                                                <option value="22">22日</option>
+                                                                                                                <option value="23">23日</option>
+                                                                                                                <option value="24">24日</option>
+                                                                                                                <option value="25">25日</option>
+                                                                                                                <option value="26">26日</option>
+                                                                                                                <option value="27">27日</option>
+                                                                                                                <option value="28">28日</option>
+                                                                                                                <option value="29">29日</option>
+                                                                                                                <option value="30">30日</option>
+                                                                                                                <option value="31">31日</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-5 col-sm-5 col-xs-12">
+                                                                                                            <input size="16" required name="remindTime" type="text" readonly="" value="" class="form-control col-md-6 col-md-6 col-xs-6"
+                                                                                                                placeholder="提醒时间">
+                                                                                                            <span class="absIcons add-on">
+                                                                                                                <i class="icon-th fa fa-calendar"></i>
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <%--<div class="form-group">--%>
+                                                                                                        <%--<div class="col-sm-offset-3 col-md-offset-3 col-md-9 col-sm-9 col-xs-12">--%>
+                                                                                                            <%--<a class="text-primary" href="javascript:void(0);">清空</a>--%>
+                                                                                                                <%--</div>--%>
+                                                                                                                    <%--</div>--%>
+
+
+                                                                                                                        <div class="form-group">
+                                                                                                                            <label class="col-md-3 col-sm-3 col-xs-12 control-label">事务内容</label>
+                                                                                                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                                                                                                <textarea placeholder="请输入事务内容" required="required" data-error="请输入事务内容" maxlength="200" class="form-control" rows="2" id="descr"
+                                                                                                                                    name="content"></textarea>
+                                                                                                                                <div class="help-block with-errors"></div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success antosubmit">保存</button>
+                    <button type="button" class="btn btn-default antoclose" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- 查看/编辑周期性事务 -->
+<div id="affairEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form data-toggle="validator" class="form-horizontal calender" role="form">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">
+                        查看周期性事务
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 5px 20px;">
+                        <div class="form-group">
+                            <textarea placeholder="请输入事务内容" required="required" data-error="请输入事务内容" maxlength="200" class="form-control" rows="2" name="content"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group border-bottom" style="font-size:14px;color:#555;">
+                            <input size="16" name="beginTime" type="text" style="border:0;width:140px;text-align: center;" value="2018-03-22 12:00:00"
+                                readonly placeholder="为空为当前时间" title="开始时间"> 至
+                            <input size="16" name="endTime" type="text" style="border:0;width:140px;text-align: center;" value="2018-03-22 12:00:00"
+                                readonly placeholder="为空则不结束" title="开始时间">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">提醒方式</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="checkbox-inline">
+                                    <input value="0" name="remind" type="checkbox" class="flat"> 手机短信提醒
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label class="checkbox-inline">
+                                    <input value="1" name="remind" type="checkbox" class="flat"> 内部短信提醒
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-2 col-xs-12 control-label">提醒类型</label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <select class="form-control" name="type" data-wrap="edit">
+                                    <option value="2">按日提醒</option>
+                                    <option value="3">按周提醒</option>
+                                    <option value="4">按月提醒</option>
+                                    <option value="5">按年提醒</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 form-control-static">
+                                <label>
+                                    <input type="checkbox" name="isWeekend" checked> 选中则排除周六日
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-2 col-xs-12 control-label">提醒时间</label>
+                            <div class="col-md-4 col-sm-4 col-xs-12" data-type="remindWeek">
+                                <select name="remindWeek" class="form-control">
+                                    <option value="1">星期一</option>
+                                    <option value="2">星期二</option>
+                                    <option value="3">星期三</option>
+                                    <option value="4">星期四</option>
+                                    <option value="5">星期五</option>
+                                    <option value="6">星期六</option>
+                                    <option value="7">星期天</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12" data-type="remindMonth">
+                                <select name="remindMonth" class="form-control">
+                                    <option value="1">1月</option>
+                                    <option value="2">2月</option>
+                                    <option value="3">3月</option>
+                                    <option value="4">4月</option>
+                                    <option value="5">5月</option>
+                                    <option value="6">6月</option>
+                                    <option value="7">7月</option>
+                                    <option value="8">8月</option>
+                                    <option value="9">9月</option>
+                                    <option value="10">10月</option>
+                                    <option value="11">11月</option>
+                                    <option value="12">12月</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12" data-type="remindDay">
+                                <select name="remindDay" class="form-control">
+                                    <option value="1">1日</option>
+                                    <option value="2">2日</option>
+                                    <option value="3">3日</option>
+                                    <option value="4">4日</option>
+                                    <option value="5">5日</option>
+                                    <option value="6">6日</option>
+                                    <option value="7">7日</option>
+                                    <option value="8">8日</option>
+                                    <option value="9">9日</option>
+                                    <option value="10">10日</option>
+                                    <option value="11">11日</option>
+                                    <option value="12">12日</option>
+                                    <option value="13">13日</option>
+                                    <option value="14">14日</option>
+                                    <option value="15">15日</option>
+                                    <option value="16">16日</option>
+                                    <option value="17">17日</option>
+                                    <option value="18">18日</option>
+                                    <option value="19">19日</option>
+                                    <option value="20">20日</option>
+                                    <option value="21">21日</option>
+                                    <option value="22">22日</option>
+                                    <option value="23">23日</option>
+                                    <option value="24">24日</option>
+                                    <option value="25">25日</option>
+                                    <option value="26">26日</option>
+                                    <option value="27">27日</option>
+                                    <option value="28">28日</option>
+                                    <option value="29">29日</option>
+                                    <option value="30">30日</option>
+                                    <option value="31">31日</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <input size="16" required name="remindTime" type="text" readonly="" value="" class="form-control col-md-6 col-md-6 col-xs-6"
+                                    placeholder="提醒时间">
+                            </div>
+                        </div>
+
+                        <%--<div class="form-group">--%>
+                            <%--<label class="col-md-3 col-sm-3 col-xs-12 control-label">事务内容</label>--%>
+                                <%--<div class="col-md-9 col-sm-9 col-xs-12" >--%>
+                                    <%--<textarea placeholder="请输入事务内容" required="required" data-error="请输入事务内容" maxlength="200" class="form-control" rows="2"  id="descr" name="content"></textarea>--%>
+                                        <%--<div class="help-block with-errors"></div>--%>
+                                            <%--</div>--%>
+                                                <%--</div>--%>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success antosubmit">保存</button>
+                    <div class="dropup" style="display: inline-block">
+                        <button class="btn btn-warning" data-toggle="dropdown">删除</button>
+                        <div class="dropdown-menu" style="width: 200px;padding:0;" role="menu">
+                            <header class="modal-header">
+                                <span type="button" class="close" aria-hidden="true">×</span>
+                                <h5 class="text-center modal-title">删除周期性事务</h5>
+                            </header>
+                            <div class="modal-body">
+                                <div class="form-group">确认删除周期性事务？</div>
+                                <a href="javascript:void(0)" class="btn btn-block btn-danger" data-action="delAffair">删除</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+                        </div>
+
+                        
+                        <script type="text/javascript" src="../js/common.min.js"></script>
+                        <script type="text/javascript" src="../js/listDemo.min.js"></script>
+                    </body>
+
+        </html>

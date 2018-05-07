@@ -1,0 +1,331 @@
+@charset "utf-8";
+@import './config.scss';
+// commmon style
+$user_img_photo_width:48px; // LOGO || 用户头像大小
+$menu_section_mg_bottom:35px;
+$nav_title_height:57px;
+$msg_list_width:300px;
+/**
+    * nav-sm
+    * 非PC端显示样式
+    */
+// font size
+$sm_title_size:$com_large_size;
+// left_col (侧边导航栏)
+$sm_left_col_width: 70px;
+$sm_left_col_title_margin: 13px 0 0 3px;
+$sm_menu_list_padding: 10px 5px;
+$sm_menu_list_active_border_right: 5px solid $assistColor2;
+$sm_child_menu_width:210px;
+$sm_child_menu_li_padding: 0 10px;
+// right_col (内容部分)
+$sm_right_col_padding:10px 20px;
+/**
+    * nav-md
+    * PC端显示样式
+    */
+$md_left_col_width:230px;
+$x_title_font:$com_medium_size;
+$dropdown-menu_width: 220px;
+$nav_li_a_padding:13px 15px 12px;
+$child_menu_padding-left:36px;
+$child_menu_a_font:12px; // 子菜单字体大小
+$table_tile_info_font:15px; // table 标题字体大小
+$table_tile_info_icon_font:17px;
+$toggle_icon_font:26px; // 显示导航字体图标大小
+$tile-stats-icon-font: 60px;// tile-stats字体图标大小
+$tile-stats-count-font: 38px;// tile-stats count字体图标大小
+$x_cont_title_font_size:$com_medium_size; // x_center 标题大小
+$error_font_size:90px; // 错误字体大小，如：404
+$user-profile-right-width:29px; // 横导航右边用户头像大小（img）
+$user-profile-right-height:29px; // 横导航右边用户头像大小（img）
+// commmon class
+h2 {
+    font-size: $medium_size;
+    font-weight: 400;
+}
+.sidebar-widget {
+    overflow: hidden;
+}
+.error-number {
+    font-size: $error_font_size;
+    line-height: 90px;
+    margin: 20px 0;
+}
+.col-middle {
+    margin-top: 5%;
+}
+.mid_center {
+    width: 370px;
+    margin: 0 auto;
+    text-align: center;
+    padding: $sm_right_col_padding;
+}
+.no-padding {
+    padding: 0 !important;
+}
+.visible {
+    overflow: visible;
+}
+.vsbyhede {
+    visibility: hidden;
+}
+.child_menu_ul {
+    position: static;
+    width: 200px;
+    background: none;
+}
+.blue {
+    color: $blue;
+}
+.purple {
+    color: $purple;
+}
+.green {
+    color: $assistColor2;
+}
+.aero {
+    color: $aero;
+}
+.red {
+    color: $INIT_COLOR;
+}
+.dark {
+    color: $defaulColor;
+}
+.border-blue {
+    border-color: $blue !important;
+}
+.border-purple {
+    border-color: $purple !important;
+}
+.border-green {
+    border-color: $assistColor2 !important;
+}
+.border-aero {
+    border-color: $aero !important;
+}
+.border-red {
+    border-color: $INIT_COLOR !important;
+}
+.border-dark {
+    border-color: $defaulColor !important;
+}
+.bg-white {
+    background: $white !important;
+    border: 1px solid $white !important;
+    color: $defaulFontColor;
+}
+.bg-green {
+    background: $assistColor2 !important;
+    border: 1px solid $assistColor2 !important;
+    color: $white;
+}
+.bg-red {
+    background: $INIT_COLOR !important;
+    border: 1px solid $INIT_COLOR !important;
+    color: $white;
+}
+.bg-blue {
+    background: #3498DB !important;
+    border: 1px solid #3498DB !important;
+    color: $white;
+}
+.bg-orange {
+    background: $orange !important;
+    border: 1px solid $orange !important;
+    color: $white;
+}
+.bg-purple {
+    background: $purple !important;
+    border: 1px solid $purple !important;
+    color: $white;
+}
+.bg-blue-sky {
+    background: $blue-sky !important;
+    border: 1px solid $blue-sky !important;
+    color: $white;
+}
+/** PNotify **/
+.alert-success {
+    color: $white;
+    background-color: $assistColor2;
+    border-color: $assistColor2;
+}
+.alert-info {
+  color: $scrollColor;
+  background-color: $assistColor1;
+  border-color: $assistColor1;
+}
+.alert-warning {
+  color: $scrollColor;
+  background-color: rgba(243, 156, 18, 0.88);
+  border-color: rgba(243, 156, 18, 0.88);
+}
+.alert-danger,
+.alert-error {
+  color: $scrollColor;
+  background-color: $INIT_COLOR;
+  border-color: $INIT_COLOR;
+}
+.ui-pnotify.dark .ui-pnotify-container {
+  color: $scrollColor;
+  background-color: $defaulColor;
+  border-color: $defaulColor;
+}
+.bg-danger ,.bg-info{
+    padding: 15px;
+}
+.fixed_height_320 {
+    height: 320px;
+}
+.fixed_height_390 {
+    height: 390px;
+}
+.fixed_height_200 {
+    height: 200px;
+}
+.overflow_hidden {
+    overflow: hidden
+}
+.progress-bar-dark {
+    background-color: $assistColor1 !important;
+}
+.progress-bar-gray {
+    background-color: $init_bg_color !important;
+}
+a, a:visited, a:focus, a:active, :visited, :focus, :active, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+  outline: 0;
+}
+a.btn-success, a.btn-primary, a.btn-warning, a.btn-danger {
+  color: $white;
+}
+.navbar {
+  margin-bottom: 0
+}
+.navbar-header {
+  background: $defaulColor;
+}
+.navbar-right {
+  margin-right: 0;
+}
+.line_30 {
+    line-height: 30px;
+}
+.main_menu_side {
+    padding: 0;
+}
+.demo-placeholder {
+    height: 280px;
+}
+button.DTTT_button, div.DTTT_button, a.DTTT_button {
+    border: 1px solid $transverseNavColor !important;
+    background: $transverseNavColor !important;
+    box-shadow: none !important;
+}
+button,.buttons,.btn,.modal-footer .btn+.btn {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.btn-group-vertical .btn, .btn-group .btn {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+.tabs-left {
+    border-left: 1px solid $borderColor;
+}
+.tabs-right {
+    border-right: 1px solid $borderColor;
+}
+.mail_list_column {
+    @extend .tabs-left;
+}
+.mail_view {
+    @extend .tabs-left;
+}
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    zoom: 1;
+}
+.clear {
+    clear: both;
+}
+.w_20 {
+    width: 20%
+}
+.w_25 {
+    width: 25%
+}
+.w_55 {
+    width: 55%
+}
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+input.parsley-error, textarea.parsley-error, select.parsley-error {
+  background: #FAEDEC;
+  border: 1px solid $INIT_COLOR;
+}
+.bad input, .bad select, .bad textarea {
+    border: 1px solid $INIT_COLOR;
+    box-shadow: 0 0 4px -2px $INIT_COLOR;
+    position: relative;
+    left: 0;
+    animation: .7s 1 shake linear;
+}
+.progress-bar-info {
+    background-color: $assistColor1;
+}
+.progress-bar-success {
+    background-color: $assistColor2;
+}
+.button {
+    background: rgb(247, 249, 250);
+    background: -moz-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+    background: -o-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+    background: linear-gradient(to bottom, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f9fa', endColorstr='#f0f0f0', GradientType=0);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    border-top: 1px solid #CFD5D9;
+    padding: 15px 0;
+    a {
+        background: url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) 0 -112px no-repeat;
+        color: #7E7E7E;
+        font-size: 17px;
+        padding: 2px 0 2px 40px;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        &:hover {
+            background-position: 0 -135px;
+            color: $assistColor1;
+        }
+    }
+}
+.col-md-55, .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+}
